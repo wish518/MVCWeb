@@ -1,0 +1,334 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width , initial-scale=1" />
+    <title>加入東方世界</title>
+    <!-- Styles -->
+    @Styles.Render("~/Content/css")
+    <style type="text/css">
+        html, body {
+            background-image: url('../Image/Paper.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            min-width: 320px;
+            min-height: 510px;
+        }
+
+        #top {
+            height: 100px;
+        }
+
+        #Master {
+            border: solid 1px;
+            width: 500px;
+            left: 50%;
+            margin-left: -250px;
+            position: absolute;
+        }
+
+        .LabelTwoWord {
+            margin-left: 48px;
+        }
+
+        .LabelFourWord {
+            margin-left: 16px;
+        }
+
+        .Valid-Text {
+            display: block;
+            padding-left: 130px;
+        }
+
+        .form-group {
+            position: relative;
+            padding: 10px 20px;
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: auto;
+        }
+
+        .form-control {
+            width: 300px
+        }
+
+        .col-sm-2 {
+            max-width: none;
+            flex: none;
+            width: auto;
+            height: 38px;
+        }
+
+        h1 {
+            margin-left: 170px;
+            color: dodgerblue;
+            width: 160px;
+        }
+
+        .btn-primary {
+            margin-left: 210px;
+            margin-bottom: 10px;
+        }
+
+        .Valid-Text {
+            padding-left: 0px;
+        }
+
+        @@media screen and (max-width: 580px) {
+            #Master {
+                width: 80%;
+                left: 44px;
+                margin-left: 0px;
+            }
+
+            .UserControl {
+                width: 60%
+            }
+
+            h1 {
+                margin-left: 33%;
+            }
+
+            .btn-primary {
+                margin-left: 45%;
+            }
+        }
+
+        @@media screen and (max-width: 550px) {
+            .form-control {
+                width: 100%
+            }
+
+            h1 {
+                margin-left: 30%;
+            }
+
+            .btn-primary {
+                margin-left: 42%;
+            }
+        }
+
+        @@media screen and (max-width: 518px) {
+            .col-sm-2 {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+            .UserControl {
+                display: block;
+                width: 70%
+            }
+
+            .col-sm-2 {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+            .form-group {
+                padding-top: 0px;
+            }
+
+            .Valid-Text {
+                padding-left: 0px;
+            }
+        }
+
+        @@media screen and (max-width: 452px) {
+            .LabelTwoWord, .LabelFourWord {
+                margin-left: 0px;
+            }
+
+            h1 {
+                display: none;
+            }
+
+            .Valid-Text {
+                display: none;
+            }
+
+            .btn-primary {
+                margin-left: 42%;
+            }
+
+            .UserControl {
+                width: 100%
+            }
+        }
+
+        @@media screen and (max-width: 320px) {
+            #Master {
+                width: 256px;
+            }
+        }
+
+        @@media screen and (max-height: 812px) {
+            #top {
+                height: 0px;
+            }
+
+            .text-muted {
+                display: none !important;
+            }
+        }
+
+        @@media screen and (max-height: 755px) {
+
+            h1 {
+                display: none
+            }
+        }
+
+        @@media screen and (max-height: 699px) {
+            .invalid-feedback {
+                display: none !important;
+            }
+
+            #DivID:hover .IdVaild {
+                display: block !important;
+            }
+
+            #DivPassword:hover .PasswordVaild {
+                display: block !important;
+            }
+
+            #DivChkPASSWORD:hover .ChkPasswordVaild {
+                display: block !important;
+            }
+
+            #DivName:hover .NameVaild {
+                display: block !important;
+            }
+
+            #DivEmail:hover .EmailVaild {
+                display: block !important;
+            }
+        }
+
+        @@media screen and (max-height: 585px) {
+            .btn-primary {
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+
+            .form-group {
+                padding-bottom: 0px;
+            }
+        }
+
+        @@media screen and (max-height: 530px) {
+            body {
+                padding-top: 10px
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="Registered">
+        <div id="top">
+        </div>
+        <div id="Master">
+            <h1>快速註冊</h1>
+            <form>
+                @*使用者帳號*@
+                @*CON = @Url.Action("GetData", "Home")*@
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">使用者帳號：</label>
+                    <div id="DivID" class="UserControl">
+                        <input type="text" id="ID" placeholder="請輸入使用者帳號" class="form-control" maxlength="20"
+                               v-model.trim="LoginM.ID" v-on:blur="IdVaildBlur('ID',LoginM.ID,'IdVaild','@Url.Action("ChkUserData","Login")')"
+                               onkeyup="value=value.replace(/[\W]/g,'') "
+                               style="ime-mode: disabled">
+                        <div class="invalid-feedback Valid-Text IdVaild">
+                            <span id="IdVaild"></span>
+                        </div>
+                        <small class="text-muted Valid-Text">
+                            使用者帳號需輸入20字以內英文或數字
+                        </small>
+                    </div>
+                </div>
+                @*密碼*@
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label LabelTwoWord">密碼：</label>
+                    <div id="DivPassword" class="UserControl">
+                        <input type="password" id="PASSWORD" placeholder="請輸入密碼" class="form-control" maxlength="20"
+                               v-model.trim="LoginM.PASSWORD" v-on:blur="IdVaildBlur('PASSWORD',LoginM.PASSWORD,'PasswordVaild')"
+                               onkeyup="value=value.replace(/[\W]/g,'') "
+                               style="ime-mode: disabled">
+                        <div class="invalid-feedback Valid-Text PasswordVaild">
+                            <span id="PasswordVaild"></span>
+                        </div>
+                        <small class="text-muted Valid-Text">
+                            密碼需輸入20字以內英文或數字
+                        </small>
+                    </div>
+                </div>
+                @*確認密碼*@
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label LabelFourWord">確認密碼：</label>
+                    <div id="DivChkPASSWORD" class="UserControl">
+                        <input type="password" id="ChkPASSWORD" placeholder="請再次輸入密碼" class="form-control" maxlength="20"
+                               v-model.trim="LoginM.ChkPASSWORD" v-on:blur="IdVaildBlur('ChkPASSWORD',LoginM.ChkPASSWORD,'ChkPasswordVaild')"
+                               onkeyup="value=value.replace(/[\W]/g,'') "
+                               style="ime-mode: disabled">
+                        <div class="invalid-feedback Valid-Text ChkPasswordVaild">
+                            <span id="ChkPasswordVaild"></span>
+                        </div>
+                        <small class="text-muted Valid-Text">
+                            必須於密碼一致
+                        </small>
+                    </div>
+                </div>
+                @*性別*@
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label LabelTwoWord">性別：</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" v-model="this.LoginM.SEX" id="inlineRadio1" value="M" checked>
+                        <label class="form-check-label" for="inlineRadio1">男</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" v-model="this.LoginM.SEX" id="inlineRadio2" value="F">
+                        <label class="form-check-label" for="inlineRadio2">女</label>
+                    </div>
+                </div>
+                @*姓名*@
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label LabelTwoWord">姓名：</label>
+                    <div id="DivName" class="UserControl">
+                        <input type="text" id="Name" placeholder="請輸入姓名" class="form-control" maxlength="10"
+                               v-model.trim="LoginM.NAME" v-on:blur="TextVaildBlur()">
+                        <div class="invalid-feedback Valid-Text NameVaild">
+                            <span v-text="NameVaild"></span>
+                        </div>
+                        <small class="text-muted Valid-Text">
+                            姓名需輸入10字之內
+                        </small>
+                    </div>
+                </div>
+                @*Email*@
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label LabelFourWord">電子信箱：</label>
+                    <div id="DivEmail" class="UserControl">
+                        <input type="text" id="Email" placeholder="請輸入Email" class="form-control"
+                               onkeyup="value=value"
+                               v-model.trim="LoginM.EMAIL" v-on:blur="EmailVaildBlur()">
+                        <div class="invalid-feedback Valid-Text EmailVaild">
+                            <span v-text="EmailVaild"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <button class="btn btn-primary" type="submit" v-on:click="SetLoginData('@Url.Action("","Login")')">註冊</button>
+        </div>
+    </div>
+</body>
+</html>
+
+@Scripts.Render("~/bundles/vue")
+@Scripts.Render("~/Scripts/Login/Registered.js")

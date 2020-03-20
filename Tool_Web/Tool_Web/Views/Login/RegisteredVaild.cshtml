@@ -1,0 +1,76 @@
+﻿
+@using ApiModel;
+@model  LoginR
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<style type="text/css">
+    html, body {
+        background-image: url('../Image/Paper.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        min-width: 320px;
+        min-height: 510px;
+    }
+
+    #MSG {
+        padding: 10px 5px;
+        position: absolute;
+        left: 50%;
+        margin-left: -260px;
+        border: solid 1px;
+        width: 520px;
+        white-space: normal;
+        word-break: break-all;
+        line-height: 24px;
+        font-size: 16px;
+        font-family: DFKai-sb;
+    }
+
+    @@media screen and (max-width: 700px) {
+        #MSG {
+            left: 50%;
+            margin-left: -200px;
+            width: 400px;
+        }
+
+        @@media screen and (max-width: 565px) {
+            #MSG {
+                left: 50%;
+                margin-left: -150px;
+                width: 300px;
+            }
+        }
+        @@media screen and (max-width: 460px) {
+            #MSG {
+                left: 0%;
+                margin-left:30px;
+                font-size: 14px;
+            }
+        }
+        @@media screen and (max-width: 420px) {
+            #MSG {
+                width: 250px;
+                font-size: 12px;
+            }
+        }
+    }
+</style>
+<link href="@Url.Action("RegisteredVaildStyle","Login")" rel="stylesheet" type="text/css" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width , initial-scale=1" />
+    <title></title>
+</head>
+<body>
+    <div id="top"></div>
+    <div id="MSG">
+        @Html.Raw(Model.MSG)
+    </div>
+</body>
+</html>

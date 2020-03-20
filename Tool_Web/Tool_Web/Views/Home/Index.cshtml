@@ -1,0 +1,357 @@
+﻿
+@using ApiModel.Game;
+@{
+    ViewBag.Title = "Home Page";
+}
+@Styles.Render("~/Content/css")
+
+<style type="text/css">
+    html, body {
+        padding: 0;
+        background-size: cover;
+        min-height: 510px;
+        min-width: 320px;
+    }
+
+    #F_Page {
+        background-image: url('http://114.32.54.227/DTW_Business/Image/b1.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 635px;
+        height: 950px;
+        min-width: 320px;
+        min-height: 510px;
+        /*position: absolute;
+        left: 50%;
+        margin-left: -318px;*/
+    }
+
+    #Contain {
+        margin-top: 40%;
+        height: 55%;
+        width: 60%;
+    }
+
+    #Toast {
+        height: 55px;
+    }
+
+    .mr-auto {
+        font-weight: bold;
+    }
+
+    .toast-body::before {
+        font-family: DFKai-SB;
+        content: '歡迎來到東方城市'
+    }
+
+    .PolygonLeft {
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(67% 0, 67% 52%, 95.5% 52%, 95.5% 98%, 0 98%, 0 0);
+        padding: 3px;
+    }
+
+    .PolygonLeftBoard {
+        display: inline-block;
+        position: relative;
+        margin-left: 8%;
+        width: 50%;
+        height: 30%;
+        clip-path: polygon(71% 0, 71% 49%, 100% 49%, 100% 100%, 0 100%, 0 0);
+        background: black;
+    }
+
+    .PolygonRight {
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(2% 0, 30% 0, 99% 0, 99% 98%, 32% 98%, 32% 48%, 2% 48%);
+        padding: 3px;
+    }
+
+    .PolygonRightBoard {
+        display: inline-block;
+        position: relative;
+        margin-left: -17%;
+        width: 50%;
+        height: 30%;
+        clip-path: polygon(0% 0, 30% 0, 100% 0, 100% 100%, 29% 100%,29% 50%, 0 50%);
+        background: black;
+    }
+
+    .TriangleLeft {
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 18%, 0 48%);
+        padding: 3px;
+    }
+
+    .TriangleLeftBoard {
+        display: inline-block;
+        position: relative;
+        margin-left: 8%;
+        width: 84.2%;
+        height: 30%;
+        clip-path: polygon(0 0, 100% 0, 100% 20%, 0 50%);
+        background: black;
+    }
+
+    .TriangleRight {
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(0 52%, 99% 22%, 99% 68%, 0 68%);
+        padding: 3px;
+    }
+
+    .TriangleRightBoard {
+        display: inline-block;
+        position: relative;
+        width: 84.2%;
+        height: 30%;
+        margin-left: -85.3%;
+        clip-path: polygon(0 50%, 100% 20%, 100% 70%, 0 70%);
+        background: black;
+    }
+
+    .Board {
+        margin-top: -1px;
+    }
+
+        .Board:hover {
+            background: red;
+        }
+
+    #Card01 {
+        background-image: url('Image/Card/Card02.jpg');
+    }
+
+    .Board img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .row {
+        margin: 0;
+    }
+
+    @@media screen and (max-width: 635px) {
+        #F_Page {
+            width: 540px;
+            height: 810px;
+        }
+
+        .TriangleLeftBoard {
+            width: 84.5%;
+        }
+
+        .TriangleRightBoard {
+            width: 84.5%;
+            margin-left: -86%;
+        }
+    }
+
+    @@media screen and (max-height: 950px) {
+        #F_Page {
+            width: 540px;
+            height: 810px;
+        }
+
+        .TriangleLeftBoard {
+            width: 84.5%;
+        }
+
+        .TriangleRightBoard {
+            width: 84.5%;
+            margin-left: -86%;
+        }
+    }
+
+    @@media screen and (max-height: 810px) {
+        #F_Page {
+            width: 480px;
+            height: 717px;
+        }
+
+        .TriangleLeftBoard {
+            width: 84.4%;
+        }
+
+        .TriangleRightBoard {
+            width: 84.4%;
+            margin-left: -85.8%;
+        }
+    }
+
+    @@media screen and (max-width: 540px) {
+        #F_Page {
+            width: 480px;
+            height: 717px;
+        }
+
+        .mr-auto {
+            font-size: 12px;
+        }
+
+        .TriangleLeftBoard {
+            width: 84.4%;
+        }
+
+        .TriangleRightBoard {
+            width: 84.4%;
+            margin-left: -85.8%;
+        }
+    }
+
+    @@media screen and (max-height: 716px) {
+        #F_Page {
+            width: 360px;
+            height: 540px;
+        }
+
+        .mr-auto {
+            font-size: 12px;
+        }
+
+        .TriangleLeftBoard {
+            width: 85.2%;
+        }
+
+        .TriangleRightBoard {
+            width: 85.2%;
+            margin-left: -87.5%;
+        }
+    }
+
+    @@media screen and (max-width: 479px) {
+        #F_Page {
+            width: 360px;
+            height: 540px;
+        }
+
+        .rounded {
+            display: none;
+        }
+
+        .mr-auto {
+            font-size: 9px;
+        }
+
+        .TriangleLeftBoard {
+            width: 85%;
+        }
+
+        .TriangleRightBoard {
+            width: 85%;
+            margin-left: -87.3%;
+        }
+    }
+
+    @@media screen and (max-height: 540px) {
+        .mr-auto {
+            font-size: 9px;
+        }
+
+        .TriangleLeftBoard {
+            width: 85%;
+        }
+
+        .TriangleRightBoard {
+            width: 85%;
+            margin-left: -87%;
+        }
+    }
+</style>
+
+<head onload="Onload()">
+    <meta name="viewport" content="width=device-width , initial-scale=1" />
+    <title>歡迎來到東方神秘世界</title>
+</head>
+<body>
+    <div id="Home" class="row justify-content-center h-100 align-items-center">
+        <link :href="CssHref('@ViewBag.CoreApiUrl','@ViewBag.cssWH')" rel="stylesheet" type="text/css" />
+        <div id="F_Page" class="row justify-content-center">
+            <div id="Contain" class="row justify-content-center">
+                <div id="Toast" class="LoginShow toast col-12  ml-3 px-1" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+                    <div class="toast-header px-0 ">
+                        <img src="~/Image/Icon/person.svg" class="rounded mr-2" alt="...">
+                        <span class="mr-auto"></span>
+                        <button type="button" class="mb-1 close" onclick="LoginOut()" style="width:30px" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true" style="font-size:9px">登出</span>
+                        </button>
+                    </div>
+                    <div class="toast-body p-0 pl-4">
+                    </div>
+                </div>
+                <div id="Card" class="w-100 h-75 ">
+                    <!-- Card01 -->
+                    <div class="PolygonLeftBoard Board ">
+                        <a href="http://114.32.54.227/DTW_Business/Questionnaire">
+                            <div class="PolygonLeft">
+                                <img src="~/Image/Card/Card01.jpg" class="mr-3" alt="...">
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Card02 -->
+                    <div class="PolygonRightBoard Board">
+                        <a href=@ViewBag.VueWeb>
+                            <div id="Card02" class="PolygonRight">
+                                <img src="~/Image/Card/Card02.jpg" class="mr-3" alt="...">
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Card03 -->
+                    <div class="PolygonLeftBoard Middle Board" data-toggle="modal" data-target="#exampleModal">
+                        <div class="PolygonLeft">
+                            <img src="~/Image/Card/Card04.jpg" class="mr-3" alt="...">
+                        </div>
+                    </div>
+                    <!-- Card04 -->
+                    <a href="http://114.32.54.227/DTW_Backend/Rwd">
+                        <div class="PolygonRightBoard Middle Board">
+                            <div class="PolygonRight">
+                                <img src="~/Image/Card/Card03.jpg" class="mr-3" alt="...">
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Card05 -->
+                    <div class="TriangleLeftBoard bottom Board LoginNoShow">
+                        <a href="@ViewBag.VueWeb/LOGIN/Y">
+                            <div class="TriangleLeft ">
+                                <img src="~/Image/Card/Card05.jpg" class="mr-3" alt="...">
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Card06 -->
+                    <div class="TriangleRightBoard bottom Board LoginNoShow">
+                        <a href="http://114.32.54.227/DTW_Business/Login/Registered">
+                            <div class="TriangleRight">
+                                <img src="~/Image/Card/Card06.jpg" class="mr-3" alt="...">
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background:#FF0000">
+                                <h4 class="modal-title" id="exampleModalLabel">Sorry !</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-center" style="background:#99BBFF">
+                                <img src="~/Image/Icon/building.svg" alt="" width="128" height="128" title="Bootstrap">
+                                <h3>尚在規劃中功能</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+@Scripts.Render("~/bundles/vue")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Scripts/Login/Index.js")

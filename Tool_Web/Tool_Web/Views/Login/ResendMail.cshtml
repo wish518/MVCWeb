@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width , initial-scale=1" />
+    <title>補寄Email</title>
+
+    @Styles.Render("~/Content/css")
+    <style type="text/css">
+        html, body {
+            background-image: url('../../Image/Paper.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            min-width: 320px;
+            min-height: 510px;
+            padding-top: 0px;
+        }
+
+        #top {
+            height: 20px;
+        }
+
+        #Master {
+            width: 300px;
+            left: 50%;
+            margin-left: -150px;
+            position: absolute;
+            padding-left: 10px;
+        }
+
+        .EmailVaild {
+            width: 100%;
+            position: relative;
+        }
+
+        #Email {
+            width: 100%;
+        }
+
+        #EmailVaild {
+        }
+
+        .btn {
+            margin-top: 20px;
+            margin-left: 203px;
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+    </div>
+    <div id="Master">
+        @using (Html.BeginForm("SendMail", "Login", FormMethod.Post, new { onsubmit = "return ChkSubmit(['#Email']);" }))
+        {
+            <div class="EmailVaild">
+                <h6>驗證信寄發Email:</h6>
+                <input type="text" id="Email" name="Email" placeholder="請輸入Email" class="form-control"
+                       onblur="BlurEmailVaild('#Email', '#EmailVaild')"
+                       value=@ViewBag.Email>
+                <div id="EmailVaild" class="invalid-tooltip">
+                </div>
+            </div>
+            <button id="ReSendBtn" class="btn btn-primary btn-sm" onclick="BlurEmailVaild('#Email', '#EmailVaild')" type="submit">確定寄發</button>
+        }
+    </div>
+</body>
+</html>
+
+@Scripts.Render("~/bundles/vue")

@@ -1,0 +1,75 @@
+﻿
+@using ApiModel.Game;
+@model  Game1R
+@{
+    ViewData.Model = Model;
+}
+<div id="COM">
+    Com HP
+    @if (Model != null && Model.GetComCardList != null && Model.GetComCardList.Count > 0)
+    {
+       // @Html.Label(Model.GetComCardList[Model.GetComCardList.Count - 1].ComHp.ToString());
+    }
+    else
+    {@Html.Label("50")}
+
+</div>
+<div id="ROUND">
+    ROUND
+    @if (Model != null && Model.ROUND > 0)
+    {
+        @Html.Label(Model.ROUND.ToString())
+    }
+    else
+    { Html.Label("1"); }
+
+</div>
+<div id="Status">
+    @if (Model != null && Model.ROUND > 0)
+    {
+        @Html.Label(Model.Status.ToString())
+    }
+    else
+    { Html.Label("請選擇卡片"); }
+
+</div>
+<div id="NEUTRAL">
+    @if (Model != null && Model.GetCardRList != null && Model.GetCardRList.Count > 0)
+    {
+        for (int i = 1; i <= Model.GetCardRList.Count; i++)
+
+        {
+            string Name = "P" + i;
+            @*<button name=@Name onclick="SetCard(@i)">
+                    @Model.GetCardRList[i - 1].CardName
+                </button>*@
+            <a href="javascript:Pick(@i)"><img id=@Name src='data:image/jpg;base64,@Model.GetCardRList[i - 1].PATH'></a>
+        }
+        <button name=OK onclick="SetCard()">
+            確定選擇
+        </button>
+    }
+    else
+    {
+        <button onclick="GetCard()">Start</button>
+        @*<button onclick="location.href='@Url.Action("GetCard","GAME1")'">Start</button>*@
+    }
+</div>
+<div id="NEXT" style="display:none">
+    <button name=NextTurn>
+        Next
+    </button>
+</div>
+
+<div id="USER">
+    Plaer HP
+    @if (Model != null && Model.GetUserCardList != null && Model.GetUserCardList.Count > 0)
+    {
+       // @Html.Label(Model.GetUserCardList[Model.GetUserCardList.Count - 1].Hp.ToString())
+    }
+    else
+    {@Html.Label("50")}
+</div>
+@Scripts.Render("~/bundles/GAME")
+
+

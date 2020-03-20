@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="~/Content/kendo/2014.1.318/kendo.common.min.css" />
+    <link rel="stylesheet" href="~/Content/kendo/2014.1.318/kendo.default.min.css" />
+    <link rel="stylesheet" href="~/Content/kendo/2014.1.318/kendo.default.mobile.min.css" />
+
+    <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+     <script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+    <script src="~/Scripts/kendo/2014.1.318/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2014.1.318/kendo.all.min.js"></script>
+
+
+</head>
+<body>
+
+    <div id="example">
+        <div id="megaStore">
+            <ul id="menu">
+                <li>
+                    資料庫管理
+                    <ul>
+                        <li>
+                            設定
+                            <ul>
+                                <li>
+                                    @Ajax.ActionLink("新增連線", "NEW_CONNECT",
+        new AjaxOptions { UpdateTargetId = "F_Page", InsertionMode = InsertionMode.Replace, HttpMethod = "POST" })
+                                </li>
+                                <li>歷史連線</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    工具
+                    <ul>
+                        <li>產生身分證/統一編號</li>
+                        <li>產生傳/收檔</li>
+                        <li>待補</li>
+                        <li>待補</li>
+                    </ul>
+                </li>
+                <li disabled="disabled">
+                    News
+                </li>
+            </ul>
+        </div>
+        <div id="FF">
+        </div>
+            <div id="example">
+                <style>
+                    #megaStore {
+                        margin: 30px auto;
+                        padding-top: 150px;
+                        background-image: url('../../Image/科技Menu.jpg');
+                        background-repeat: no-repeat;
+                        background-size: 100% 100%;
+                    }
+
+                    #menu {
+                        background-color: #eaeaea;
+                    }
+                </style>
+                <script>
+                    $(document).ready(function () {
+                        $("#menu").kendoMenu();
+                    });
+                </script>
+            </div>
+
+
+</body>
+</html>
+<div>
+    @RenderBody()
+</div>
