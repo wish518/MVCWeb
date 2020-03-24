@@ -84,7 +84,7 @@ namespace Tool_Web.Fitter
 
             string ID = HttpContext.Current.Session["ID"].ToString();
             string LogPath = ConfigurationManager.AppSettings["UserProcessLogPath"].ToString();
-            using (StreamWriter sw = new StreamWriter(string.Format(LogPath, ID, DateTime.Now.ToString("yyyy-MM-dd")), true, Encoding.UTF8))
+            using (StreamWriter sw = new StreamWriter(string.Format(LogPath, ID.Replace(".","-").Replace(":", "-"), DateTime.Now.ToString("yyyy-MM-dd")), true, Encoding.UTF8))
             {
                 StringBuilder sb = new StringBuilder();
                 if (StatusCode == 1)

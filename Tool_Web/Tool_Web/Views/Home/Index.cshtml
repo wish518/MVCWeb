@@ -1,5 +1,6 @@
 ﻿
 @using ApiModel.Game;
+@using System.Configuration;
 @{
     ViewBag.Title = "Home Page";
 }
@@ -14,16 +15,12 @@
     }
 
     #F_Page {
-        background-image: url('http://114.32.54.227/DTW_Business/Image/b1.jpg');
         background-repeat: no-repeat;
         background-size: contain;
         width: 635px;
         height: 950px;
         min-width: 320px;
         min-height: 510px;
-        /*position: absolute;
-        left: 50%;
-        margin-left: -318px;*/
     }
 
     #Contain {
@@ -267,9 +264,10 @@
     <title>歡迎來到東方神秘世界</title>
 </head>
 <body>
-    <div id="Home" class="row justify-content-center h-100 align-items-center">
+    <div id="Home" class="row justify-content-center h-100 align-items-center ">
         <link :href="CssHref('@ViewBag.CoreApiUrl','@ViewBag.cssWH')" rel="stylesheet" type="text/css" />
-        <div id="F_Page" class="row justify-content-center">
+        @{string Env = ConfigurationManager.AppSettings.Get("Env");}
+        <div id="F_Page" style="background-image: url('@ConfigurationManager.AppSettings.Get("Env")/DTW_Business/Image/b1.jpg')" class="row justify-content-center">
             <div id="Contain" class="row justify-content-center">
                 <div id="Toast" class="LoginShow toast col-12  ml-3 px-1" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
                     <div class="toast-header px-0 ">
@@ -352,6 +350,9 @@
         </div>
     </div>
 </body>
+
+<script type="text/javascript">
+</script>
 @Scripts.Render("~/bundles/vue")
 @Scripts.Render("~/bundles/bootstrap")
 @Scripts.Render("~/Scripts/Login/Index.js")
