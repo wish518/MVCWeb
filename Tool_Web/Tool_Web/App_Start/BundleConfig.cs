@@ -20,18 +20,22 @@ namespace Tool_Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/jquery-{version}.js",
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/bootstrap/bootstrap-datepicker.js",
+                      "~/Scripts/bootstrap/bootstrap-datepicker.zh-TW.js",
                       "~/Scripts/respond.js",
+                      "~/Scripts/jquery.easyui.min.js",
                       "~/Scripts/Common/TextVaild.js",
                       "~/Scripts/Common/Common.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/vue").Include(
-                      "~/Scripts/vue.js",
-                      "~/Scripts/jquery-{version}.js"));
+                      "~/Scripts/vue.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap/bootstrap-datepicker3.min.css",
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/bundles/GAME").Include(

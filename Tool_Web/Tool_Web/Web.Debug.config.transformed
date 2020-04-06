@@ -19,6 +19,7 @@
     <add key="ApiServiceUrl" value="http://localhost:11123/GameAPI/"/>
     <add key="CoreApiServiceUrl" value="http://localhost:11123/CoreAPI/"/>
     <add key="VueWeb" value="http://114.32.54.227/DTW"/>
+    <add key="MvcEnv" value="http://localhost:8080/DTW_Business/" />
   </appSettings>
   <!--
     如需 web.config 變更的說明，請參閱 http://go.microsoft.com/fwlink/?LinkId=235367。

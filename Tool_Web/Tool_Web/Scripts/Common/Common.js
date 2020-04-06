@@ -1,4 +1,17 @@
 ﻿window.onload = CommonLoad();
+$(document).ready(function () {
+    $('.datepicker').datepicker({
+        format: "yyyy/mm/dd",
+        todayBtn: true,
+        autoclose: true,
+        endDate: "today",
+        todayHighlight: true,
+        language: 'zh-TW',
+        showOn: "button",
+        buttonImageOnly: true,
+        buttonImage: "https://jqueryui.com/resources/demos/datepicker/images/calendar.gif"
+    });
+});        
 function CommonLoad() {
     var ID = "";
     if (localStorage.getItem('token') == 'ImLogin') {

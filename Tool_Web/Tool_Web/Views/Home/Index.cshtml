@@ -1,6 +1,5 @@
-﻿
+﻿@using System.Configuration
 @using ApiModel.Game;
-@using System.Configuration;
 @{
     ViewBag.Title = "Home Page";
 }
@@ -12,15 +11,21 @@
         background-size: cover;
         min-height: 510px;
         min-width: 320px;
+        background-size: cover;
+        background-image: url('@ConfigurationManager.AppSettings.Get("MvcEnv")/Image/b5.jpg');
     }
 
     #F_Page {
+        background-image: url('@ConfigurationManager.AppSettings.Get("MvcEnv")/Image/b1.jpg');
         background-repeat: no-repeat;
         background-size: contain;
         width: 635px;
         height: 950px;
         min-width: 320px;
         min-height: 510px;
+        /*position: absolute;
+        left: 50%;
+        margin-left: -318px;*/
     }
 
     #Contain {
@@ -264,10 +269,9 @@
     <title>歡迎來到東方神秘世界</title>
 </head>
 <body>
-    <div id="Home" class="row justify-content-center h-100 align-items-center ">
-        <link :href="CssHref('@ViewBag.CoreApiUrl','@ViewBag.cssWH')" rel="stylesheet" type="text/css" />
-        @{string Env = ConfigurationManager.AppSettings.Get("Env");}
-        <div id="F_Page" style="background-image: url('@ConfigurationManager.AppSettings.Get("Env")/DTW_Business/Image/b1.jpg')" class="row justify-content-center">
+    <div id="Home" class="row justify-content-center h-100 align-items-center">
+        @*<link :href="CssHref('@ViewBag.CoreApiUrl','@ViewBag.cssWH')" rel="stylesheet" type="text/css" />*@
+        <div id="F_Page" class="row justify-content-center">
             <div id="Contain" class="row justify-content-center">
                 <div id="Toast" class="LoginShow toast col-12  ml-3 px-1" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
                     <div class="toast-header px-0 ">
@@ -291,17 +295,19 @@
                     </div>
                     <!-- Card02 -->
                     <div class="PolygonRightBoard Board">
-                        <a href=@ViewBag.VueWeb>
+                        <a href="http://114.32.54.227/DTW_Business/Questionnaire">
                             <div id="Card02" class="PolygonRight">
                                 <img src="~/Image/Card/Card02.jpg" class="mr-3" alt="...">
                             </div>
                         </a>
                     </div>
                     <!-- Card03 -->
-                    <div class="PolygonLeftBoard Middle Board" data-toggle="modal" data-target="#exampleModal">
-                        <div class="PolygonLeft">
-                            <img src="~/Image/Card/Card04.jpg" class="mr-3" alt="...">
-                        </div>
+                    <div class="PolygonLeftBoard Middle Board" >
+                        <a href="@ConfigurationManager.AppSettings.Get("MvcEnv")/Stock/StockInfo">
+                            <div class="PolygonLeft">
+                                <img src="~/Image/Card/Card04.jpg" class="mr-3" alt="...">
+                            </div>
+                        </a>
                     </div>
                     <!-- Card04 -->
                     <a href="http://114.32.54.227/DTW_Backend/Rwd">
@@ -350,9 +356,6 @@
         </div>
     </div>
 </body>
-
-<script type="text/javascript">
-</script>
-@Scripts.Render("~/bundles/vue")
 @Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/vue")
 @Scripts.Render("~/Scripts/Login/Index.js")

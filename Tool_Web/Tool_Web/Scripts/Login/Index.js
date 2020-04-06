@@ -14,15 +14,6 @@
     $('.toast').toast('show')
     $('.mr-auto').html('帥哥 您好')*/
 }
-function FakeLoginOut() {
-    $('.LoginShow').css('display', 'none')
-    $('.LoginNoShow').css('display', 'inline-block')
-}
-function FakeLogin() {
-    $('.toast').toast('show')
-    $('.LoginShow').css('display', 'block')
-    $('.LoginNoShow').css('display', 'none')
-}
 
 function LoginOut() {
     $('.LoginShow').css('display', 'none')

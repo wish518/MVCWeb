@@ -1,0 +1,39 @@
+﻿@using System.Configuration
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width , initial-scale=1" />
+    <title>股票資訊</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/Stock/StockInfo.js")
+</head>
+<body onload='LoadApiData("@ConfigurationManager.AppSettings.Get("CoreApiServiceUrl")")'>
+    <div class="row">
+        <div class="row justify-content-center align-items-center col-6 col-md-4 pl-2">
+            查詢日期：
+            <input class="datepicker valid pl-1" style="width:120px" id="QueryDate"
+                   data-val="true" data-val-date="El campo Vencimiento debe ser una fecha." name="FirstMaturiy" readonly="readonly" type="text" value="">
+            <img width="26" height="26" src="~/Image/Icon/calendar.svg" alt="" title="Bootstrap">
+        </div>
+        <div class="row justify-content-center align-items-center col-6 col-md-4">
+            查詢類別：
+            <select class="form-control w-50 pl-1" id="CategorySelect"></select>
+        </div>
+        <div class=" col-6 col-md-4">
+            <div class="easyui-panel">
+                <select class="easyui-combobox pl-1" name="state" label="股票：" labelPosition="left" style="width:100%;">
+                    <option value="9801">(9801)兆豐</option>
+                    <option value="9802">(9802)國泰</option>
+                    <option value="2101">(2101)安本</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
